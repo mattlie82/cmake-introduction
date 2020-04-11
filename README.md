@@ -1,5 +1,4 @@
-[![Build Status](http://bernoulli:8080/job/Test/badge/icon)](http://bernoulli:8080/job/Test/)
-
+[![CircleCI](https://circleci.com/gh/mattlie82/cmake-introduction.svg?style=svg)](https://circleci.com/gh/mattlie82/cmake-introduction)
 # Introduction
 CMake is a convenient tool to manage the build process of software in a portable way. CMake can locate compilers, executables, files, and libraries, set up complicated library hierarchies, and help you to install your project. It also has integrated testing capabilities e.g. to automatically test whether new features of your project have broken older parts of the code.
 
