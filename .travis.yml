@@ -1,7 +1,1 @@
 language: cpp
-
-dist: bionic
-compiler:
-- clang
-os:
-- linux
