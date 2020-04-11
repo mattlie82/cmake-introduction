@@ -1,0 +1,37 @@
+#ifndef __cmake_introduction_config_h__
+#define __cmake_introduction_config_h__
+
+// If CMake defines the variable CMAKE_INTRODUCTION_WITH_LAPACK
+// then the following will be defined in the header config.h.
+// Otherwise it will be commented and is not available in your code,
+// i.e. #ifdef CMAKE_INTRODUCTION_WITH_LAPACK will be true in the 
+// first case and false in the second.
+#cmakedefine CMAKE_INTRODUCTION_WITH_LAPACK
+
+// Here the value of the CMake variable CMAKE_INTRODUCTION_VERSION
+// will be assigned to the respective variable for the C++ preprocessor.
+// If it is empty or doesn't exists, the value here will be empty.
+#define CMAKE_INTRODUCTION_VERSION "@CMAKE_INTRODUCTION_VERSION@"
+
+/** @brief Namespace for configuration time constants 
+ * 
+ * The constants are automatically defined by CMake in the configuration process.
+ */
+namespace configure_time_constants
+{
+/// @name information on the repository version and the build system
+/// @brief here some information from configure time (during a `cmake` run) is 
+/// made available during compile and run time.
+/// @warning this is updated only during configure time, i.e. when `cmake` is 
+/// called. So these entries here can be quite out of date, don't rely on them
+/// to be correct. You can touch the file `config.h.in` in the directory 
+/// `include` to invoke a rerun of `cmake` during a call to make and update 
+/// this file.
+//@{
+constexpr const char * hg_revision      = "@CMAKE_INTRODUCTION_HG_REVISION@";  ///< HG changeset id
+constexpr const char * hg_branch        = "@CMAKE_INTRODUCTION_HG_BRANCH@";    ///< Current HG branch
+constexpr const bool   hg_local_changes =  @CMAKE_INTRODUCTION_LOCAL_CHANGES@; ///< Is current working directory clean? 
+constexpr const char * build_type       = "@CMAKE_BUILD_TYPE@";                ///< Current build type
+//@}
+}
+#endif
